@@ -10,10 +10,9 @@ RUN apt-get update && \
 RUN echo 'steam            hard    nofile          100000' >> /etc/security/limits.conf
 RUN su - steam
 RUN pwd
-RUN cd /home/steam
-RUN pwd
-RUN mkdir ./arkdedicated
-RUN curl -sqL "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz" | tar zxvf -
+RUN cd /home/steam && pwd
+RUN mkdir /home/steam/arkdedicated
+RUN cd /home/steam && curl -sqL "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz" | tar zxvf -
     
 RUN ls
 RUN ls -lah 
