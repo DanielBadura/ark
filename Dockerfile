@@ -17,6 +17,7 @@ RUN cd /home/steam && curl -sqL "https://steamcdn-a.akamaihd.net/client/installe
 RUN ls
 RUN ls -lah 
 RUN ls -lah /home/steam
+RUN ls -lah /home/steam/linux32
 
 RUN /home/steam/steamcmd.sh +quit
 RUN /home/steam/steamcmd.sh +login anonymous +force_install_dir ./arkdedicated +app_update 376030 validate +quit
