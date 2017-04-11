@@ -1,9 +1,9 @@
 FROM ubuntu:latest
 
 RUN apt-get update && \
-    apt-get install libstdc++6 && \
-    apt-get install curl && \
-    apt-get install vim && \
+    apt-get install -y libstdc++6 && \
+    apt-get install -y curl && \
+    apt-get install -y vim && \
     useradd -m steam && \
     cd /home/steam
     
