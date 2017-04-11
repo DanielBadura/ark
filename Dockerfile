@@ -1,19 +1,16 @@
 FROM ubuntu:latest
 
-RUN apt-get update &&
-    apt-get install libstdc++6 &&
-    apt-get install curl &&
-    apt-get install vim &&
-    useradd -m steam &&
+RUN apt-get update && \
+    apt-get install libstdc++6 && \
+    apt-get install curl && \
+    apt-get install vim && \
+    useradd -m steam && \
     cd /home/steam
     
 RUN echo 'steam            hard    nofile          100000' >> /etc/security/limits.conf
 RUN su - steam
-RUN curl -sqL "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz" | tar zxvf - && 
-    mkdir /home/arkdedicated &&
+RUN curl -sqL "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz" | tar zxvf - && \
+    mkdir /home/arkdedicated && \
     ./steamcmd.sh +login anonymous +force_install_dir ./arkdedicated +app_update 376030 validate +quit
     
-RUN ./arkdedicated/ShooterGame/Binaries/Linux/ShooterGameServer TheIsland?listen?SessionName=ArkAtNievenheim?Ma
-pPlayerLocation=true?NoTributeDownloads=true?QueryPort=27015?ServerPassword=akk1337?ServerAdminPassword=akk
-?MaxPlayers=10?ServerHardcore=False?ServerCrosshair=true?AllowThirdPersonPlayer=true?Ser
-verPVE=true -server -log
+RUN ./arkdedicated/ShooterGame/Binaries/Linux/ShooterGameServer TheIsland?listen?SessionName=ArkAtNievenheim?MapPlayerLocation=true?NoTributeDownloads=true?QueryPort=27015?ServerPassword=akk1337?ServerAdminPassword=akk?MaxPlayers=10?ServerHardcore=False?ServerCrosshair=true?AllowThirdPersonPlayer=true?ServerPVE=true -server -log
