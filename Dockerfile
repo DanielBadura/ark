@@ -12,7 +12,7 @@ RUN su - steam
 RUN curl -sqL "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz" | tar zxvf - && \
     mkdir /home/arkdedicated
  
-RUN ./steamcmd.sh +quit
-RUN ./steamcmd.sh +login anonymous +force_install_dir ./arkdedicated +app_update 376030 validate +quit
+RUN steamcmd.sh +quit
+RUN steamcmd.sh +login anonymous +force_install_dir ./arkdedicated +app_update 376030 validate +quit
     
 RUN ./arkdedicated/ShooterGame/Binaries/Linux/ShooterGameServer TheIsland?listen?SessionName=ArkAtNievenheim?MapPlayerLocation=true?NoTributeDownloads=true?QueryPort=27015?ServerPassword=akk1337?ServerAdminPassword=akk?MaxPlayers=10?ServerHardcore=False?ServerCrosshair=true?AllowThirdPersonPlayer=true?ServerPVE=true -server -log
