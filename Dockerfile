@@ -11,7 +11,11 @@ RUN echo 'steam            hard    nofile          100000' >> /etc/security/limi
 RUN su - steam
 RUN curl -sqL "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz" | tar zxvf - && \
     mkdir /home/arkdedicated
- 
+
+RUN ls
+RUN ls -lah 
+RUN ls -lah /home/steam
+
 RUN /home/steam/steamcmd.sh +quit
 RUN /home/steam/steamcmd.sh +login anonymous +force_install_dir ./arkdedicated +app_update 376030 validate +quit
     
