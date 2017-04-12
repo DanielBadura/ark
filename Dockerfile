@@ -8,7 +8,10 @@ RUN apt-get update && \
     cd /home/steam
     
 RUN echo 'steam            hard    nofile          100000' >> /etc/security/limits.conf
+RUN whoami
 RUN su - steam
+RUN whoami
+RUN su - steam && whoami
 RUN pwd
 RUN cd /home/steam && pwd
 RUN mkdir /home/steam/arkdedicated
