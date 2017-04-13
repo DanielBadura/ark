@@ -5,7 +5,7 @@ RUN apt-get update && \
     apt-get install -y curl && \
     apt-get install -y vim
     
-RUN useradd -m steam
+RUN useradd -m -s /bin/bash steam
     
 RUN echo 'steam            hard    nofile          100000' >> /etc/security/limits.conf
 USER steam
