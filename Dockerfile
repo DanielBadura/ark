@@ -3,8 +3,9 @@ FROM ubuntu:latest
 RUN apt-get update && \
     apt-get install -y libstdc++6 && \
     apt-get install -y curl && \
-    apt-get install -y vim && \
-    useradd -m steam
+    apt-get install -y vim
+    
+RUN useradd -m steam
     
 RUN echo 'steam            hard    nofile          100000' >> /etc/security/limits.conf
 USER steam
@@ -12,6 +13,7 @@ WORKDIR /home/steam
 RUN mkdir ./arkdedicated
 RUN ls -lah
 RUN curl -sqL "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz" | tar zxvf -
+RUN ls -lah
 
 RUN ./steamcmd.sh +quit
 RUN ./steamcmd.sh +login anonymous +force_install_dir ./arkdedicated +app_update 376030 validate +quit
